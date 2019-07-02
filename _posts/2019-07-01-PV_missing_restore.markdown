@@ -5,7 +5,7 @@ date:       2019-07-01 14:01:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
 tags:       pv restore
-cover:      "/assets/missing.png"
+cover:      "/assets/missing.PNG"
 ---
 
 ## PV missing restore
@@ -22,14 +22,14 @@ Physical Volume이 누락 되었는지 확인 작업이 필요합니다. 가장 
 ```bash
 pvs
 ```
-![Alt text](/assets/pv_missing.png){: witdh="350"}
+![Alt text](/assets/pv_missing.PNG){: witdh="350"}
 
 혹은 다른 방법으로 Volume Group에서 누락된 Physical Volume 을 몇개 인지 확인할 수 있습니다.
 vgchange 명령에 v 옵션을 사용하면 실패 원인을 출력해줍니다. 이를 이용하여 Physical Volume이 누락된 정보 혹은 vgchange에 실패하는 다른 원인도 알 수 있습니다. 
 ```bash
 vgchange -ay -v vg_name
 ```
-![Alt text](/assets/vgchange_ay_v.png){: witdh="350"}
+![Alt text](/assets/vgchange_ay_v.PNG){: witdh="350"}
 누락된 Physical Volume 을 확인 하였으면 pvck 명령을 통하여 해당 Volume Group 이 정상 상태인지 확인해야 하는 작업이 필요합니다.
 Physical Volume 의 상태를 확인할 수 있는 명령어인 pvck 명령을 사용하여 해당 Physical Volume 상태를 확인합니다.
 pvck 이후 정상 여부를 확인하는 방법은 pvck 결과를 확인 하는 방법도 있지만 pvck 명령이 정상 종료 되었는지 echo $? 를 이용하여 확인할 수 있습니다.
@@ -38,7 +38,7 @@ pvck -v /dev/sdb
 pvck -vvvv /dev/sdc
 echo $?
 ```
-![Alt text](/assets/pvck_echo.png){: witdh="350"}
+![Alt text](/assets/pvck_echo.PNG){: witdh="350"}
 위 명령어들을 통해 Physical Volume 가 정상 상태임을 확인 했으면 Volume Group 에 추가해주는 작업이 필요합니다
 vgextend 명령을 사용하여 missing 된 Physical Volume 을 Volume Group에 추가 해주도록 합니다.
 위와는 다른 비정상 상황에는서 vgreduce --removemissing 명령을 사용하기도 하는데 데이터를 보존해야한다면 사용하면 안되는 명령입니다.
