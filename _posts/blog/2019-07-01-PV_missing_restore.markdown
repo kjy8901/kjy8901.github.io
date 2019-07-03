@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "PV missing restore"
+title:      "특수한 전원 장애 상황에서 PV missing 복구"
 date:       2019-07-01 14:01:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
-tags:       pv restore
+tags:       PV, VG
 cover:      "/assets/missing.PNG"
 ---
 
