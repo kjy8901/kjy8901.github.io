@@ -1,0 +1,394 @@
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200816:8:200816:8:8:[global.glusterfs - usage-type gf_common_mt_iobuf memusage]
+dump num 1 : 200816:8:200816:8:8:[global.glusterfs - usage-type gf_common_mt_iobuf memusage]
+dump num 2 : 200816:8:200816:8:8:[global.glusterfs - usage-type gf_common_mt_iobuf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 2592:9:2592:9:9:[global.glusterfs - usage-type gf_common_mt_iobuf_arena memusage]
+dump num 1 : 2592:9:2592:9:9:[global.glusterfs - usage-type gf_common_mt_iobuf_arena memusage]
+dump num 2 : 2592:9:2592:9:9:[global.glusterfs - usage-type gf_common_mt_iobuf_arena memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1776:1:1776:1:1:[global.glusterfs - usage-type gf_common_mt_iobuf_pool memusage]
+dump num 1 : 1776:1:1776:1:1:[global.glusterfs - usage-type gf_common_mt_iobuf_pool memusage]
+dump num 2 : 1776:1:1776:1:1:[global.glusterfs - usage-type gf_common_mt_iobuf_pool memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 1 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 2 : 200:1:400:2:2:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 1 : 200:1:400:2:2:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 2 : 120:8:583:18:267623:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_char memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 1 : 376:1:376:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 2 : 680:1:680:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 1 : 96:7:583:18:106880:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_char memusage]
+dump num 2 : 92:5:210:6:14:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_asprintf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 1 : 96:7:583:18:106880:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_char memusage]
+dump num 2 : 2:1:102:11:133804:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_memdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 1 : 680:1:680:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 2 : 24:1:24:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 680:1:680:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 1 : 680:1:680:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 2 : 100:5:370:13:2648:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_strdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 680:1:680:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 1 : 100:5:370:13:1078:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_strdup memusage]
+dump num 2 : 2:1:102:11:133804:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_memdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 680:1:680:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 1 : 92:5:210:6:14:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_asprintf memusage]
+dump num 2 : 24:1:24:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 680:1:680:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 1 : 128:2:192:3:362:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_event_pool memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 680:1:680:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 1 : 128:2:192:3:362:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 2 : 136:1:272:2:525:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 680:1:680:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 1 : 24:1:24:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 2 : 88:1:88:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 376:1:376:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 1 : 376:1:376:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 2 : 120:8:583:18:267623:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_char memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 376:1:376:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 1 : 96:7:583:18:106880:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_char memusage]
+dump num 2 : 100:5:370:13:2648:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_strdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 376:1:376:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 1 : 680:1:680:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 2 : 92:5:210:6:14:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_asprintf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 376:1:376:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 1 : 100:5:370:13:1078:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_strdup memusage]
+dump num 2 : 128:2:192:3:626:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 376:1:376:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 1 : 100:5:370:13:1078:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_strdup memusage]
+dump num 2 : 24:1:24:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 376:1:376:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 1 : 92:5:210:6:14:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_asprintf memusage]
+dump num 2 : 136:1:272:2:525:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 272:1:272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 1 : 272:1:272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 2 : 88:1:88:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 272:1:272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 1 : 88:1:88:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 2 : 200:1:400:2:2:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 272:1:272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 1 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 2 : 376:1:376:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 272:1:272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 1 : 200:1:400:2:2:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 2 : 680:1:680:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 272:1:272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 1 : 200:1:400:2:2:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 2 : 100:5:370:13:2648:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_strdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 272:1:272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 1 : 376:1:376:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 2 : 92:5:210:6:14:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_asprintf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200:1:400:2:2:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 1 : 200:1:400:2:2:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 2 : 376:1:376:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200:1:400:2:2:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 1 : 376:1:376:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 2 : 680:1:680:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200:1:400:2:2:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 1 : 96:7:564:18:106880:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_char memusage]
+dump num 2 : 100:5:370:13:2648:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_strdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200:1:400:2:2:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 1 : 680:1:680:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 2 : 2:1:102:11:133804:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_memdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200:1:400:2:2:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 1 : 680:1:680:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 2 : 128:2:192:3:626:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 200:1:400:2:2:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 1 : 100:5:370:13:1078:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_strdup memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 128:2:192:3:124:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 1 : 128:2:192:3:362:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 2 : 128:2:192:3:626:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 128:2:192:3:124:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 1 : 24:1:24:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 128:2:192:3:124:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 2 : 272:1:272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 128:2:192:3:124:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 2 : 272:1:272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 128:2:192:3:124:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 1 : 272:1:272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 2 : 200:1:400:2:2:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 128:2:192:3:124:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 1 : 272:1:272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 2 : 376:1:376:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 100:5:370:13:31:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_strdup memusage]
+dump num 1 : 100:5:370:13:1078:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_strdup memusage]
+dump num 2 : 92:5:210:6:14:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_asprintf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 100:5:370:13:31:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_strdup memusage]
+dump num 1 : 92:5:210:6:14:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_asprintf memusage]
+dump num 2 : 128:2:192:3:626:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 100:5:370:13:31:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_strdup memusage]
+dump num 1 : 128:2:192:3:388:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 100:5:370:13:31:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_strdup memusage]
+dump num 1 : 24:1:24:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 100:5:370:13:31:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_strdup memusage]
+dump num 1 : 24:1:24:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 2 : 272:1:272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 100:5:370:13:31:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_strdup memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 2 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 96:7:583:13:64:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_char memusage]
+dump num 1 : 96:7:583:18:106880:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_char memusage]
+dump num 2 : 680:1:680:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 96:7:583:13:64:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_char memusage]
+dump num 1 : 680:1:680:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 2 : 92:5:210:6:14:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_asprintf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 96:7:564:13:64:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_char memusage]
+dump num 1 : 100:5:370:13:1078:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_strdup memusage]
+dump num 2 : 128:2:192:3:652:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 96:7:583:13:64:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_char memusage]
+dump num 1 : 92:5:210:6:14:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_asprintf memusage]
+dump num 2 : 24:1:24:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 96:7:583:13:64:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_char memusage]
+dump num 1 : 92:5:210:6:14:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_asprintf memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 96:7:564:13:64:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_char memusage]
+dump num 1 : 128:2:192:3:388:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 2 : 272:1:272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 92:5:210:6:14:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_asprintf memusage]
+dump num 1 : 92:5:210:6:14:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_asprintf memusage]
+dump num 2 : 2:1:102:11:133804:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_memdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 92:5:210:6:14:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_asprintf memusage]
+dump num 1 : 128:2:192:3:362:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 2 : 24:1:24:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 92:5:210:6:14:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_asprintf memusage]
+dump num 1 : 24:1:24:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 2 : 136:1:272:2:525:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 92:5:210:6:14:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_asprintf memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_event_pool memusage]
+dump num 2 : 136:1:272:2:525:[protocol/client.EC_vol-client-0 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 92:5:210:6:14:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_asprintf memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 2 : 88:1:88:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 92:5:210:6:14:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_asprintf memusage]
+dump num 1 : 136:1:272:2:211:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 2 : 200:1:400:2:2:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 88:1:88:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 1 : 88:1:88:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 2 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 88:1:88:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 1 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 2 : 376:1:376:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 88:1:88:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 1 : 200:1:400:2:2:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 2 : 120:8:564:18:267623:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_char memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 88:1:88:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 1 : 376:1:376:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 2 : 100:5:370:13:2648:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_strdup memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 88:1:88:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 1 : 376:1:376:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 2 : 92:5:210:6:14:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_asprintf memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 88:1:88:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 1 : 96:7:564:18:106880:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_char memusage]
+dump num 2 : 128:2:192:3:652:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_gf_timer_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 64:1:192:3:110:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_iobref memusage]
+dump num 1 : 136:1:272:2:211:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 2 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 24:1:24:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 1 : 24:1:24:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 2 : 24:1:24:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 24:1:24:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 2 : 136:1:272:2:525:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 24:1:24:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 1 : 136:1:272:2:211:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 2 : 88:1:88:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 24:1:24:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 1 : 136:1:272:2:211:[protocol/client.EC_vol-client-0 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 2 : 88:1:88:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 24:1:24:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 1 : 88:1:88:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 2 : 376:1:376:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpcclnt_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 24:1:24:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_volume_opt_list_t memusage]
+dump num 1 : 88:1:88:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 2 : 120:8:583:18:267623:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_char memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_event_pool memusage]
+dump num 1 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_event_pool memusage]
+dump num 2 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_event_pool memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 1 : 136:1:272:2:211:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_fdctx_t memusage]
+dump num 2 : 272:1:272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 1 : 272:1:272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 2 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 1 : 88:1:88:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_cb_program_t memusage]
+dump num 2 : 200:1:400:2:2:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_event_pool memusage]
+dump num 1 : 272:1:272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_client_mt_clnt_conf_t memusage]
+dump num 2 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 1 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 2 : 120:8:583:18:267623:[protocol/client.EC_vol-client-2 - usage-type gf_common_mt_char memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : 16:1:16:1:1:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_dnscache6 memusage]
+dump num 1 : 1272:1:1272:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_rpc_trans_t memusage]
+dump num 2 : 680:1:680:1:1:[protocol/client.EC_vol-client-1 - usage-type gf_common_mt_socket_private_t memusage]
+dump num 3 : ----------------------------------------------------------------- 
+attribute  : size:num_allocs:max_size:max_num_allocs:total_allocs 
+dump num 0 : dump num 1 : 200:1:400:2:2:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_rpcclnt_savedframe_t memusage]
+dump num 2 : 100:5:370:13:2648:[protocol/client.EC_vol-client-0 - usage-type gf_common_mt_strdup memusage]
+dump num 3 : ----------------------------------------------------------------- 

@@ -1,0 +1,19 @@
+[global]
+name=PM883Ran91_raw
+bs=4k
+
+[Test]
+runtime=1800
+#size=6T
+rw=randrw
+iodepth=32
+rwmixwrite=10 #10% wirte
+numjobs=8
+direct=1
+ioengine=libaio
+filename=/dev/sdn
+write_bw_log=Ran91
+write_lat_log=Ran91
+write_iops_log=Ran91
+log_avg_msec=1000
+

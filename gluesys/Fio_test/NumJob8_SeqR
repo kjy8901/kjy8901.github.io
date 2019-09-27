@@ -1,0 +1,17 @@
+[global]
+name=PM883SeqR_raw
+bs=128k
+
+[Test]
+#runtime=60
+#size=6T
+rw=read
+filename=/dev/sdn
+iodepth=32
+numjobs=8
+direct=1
+ioengine=libaio
+write_bw_log=SeqR
+write_lat_log=SeqR
+write_iops_log=SeqR
+log_avg_msec=1000

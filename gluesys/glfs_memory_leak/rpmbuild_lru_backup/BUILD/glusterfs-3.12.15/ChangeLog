@@ -1,0 +1,53 @@
+===== git log ====
+commit a1cf0f2c8ba4dcff39f6fa39a9904a5598b724d5
+Author: Jiffin Tony Thottan <jthottan@redhat.com>
+Date:   Sat Oct 13 11:12:10 2018 +0530
+
+    Release notes for Gluster 3.12.15
+    
+    Change-Id: Ifc5dfc21f6dbd4c91c38618a298eecb5fa9aaf65
+    BUG: 1638188
+    Signed-off-by: Jiffin Tony Thottan <jthottan@redhat.com>
+
+commit 166e66c67428e6263e77d969e3447832e85d5f23
+Author: Ravishankar N <ravishankar@redhat.com>
+Date:   Wed Oct 10 17:57:33 2018 +0530
+
+    afr: prevent winding inodelks twice for arbiter volumes
+    
+    Backport of https://review.gluster.org/#/c/glusterfs/+/21380/
+    
+    Problem:
+    In an arbiter volume, if there is a pending data heal of a file only on
+    arbiter brick, self-heal takes inodelks twice due to a code-bug but unlocks
+    it only once, leaving behind a stale lock on the brick. This causes
+    the next write to the file to hang.
+    
+    Fix:
+    Fix the code-bug to take lock only once. This bug was introduced master
+    with commit eb472d82a083883335bc494b87ea175ac43471ff
+    
+    Thanks to  Pranith Kumar K <pkarampu@redhat.com> for finding the RCA.
+    
+    fixes: bz#1637989
+    Change-Id: I15ad969e10a6a3c4bd255e2948b6be6dcddc61e1
+    BUG: 1637989
+    Signed-off-by: Ravishankar N <ravishankar@redhat.com>
+
+commit f030db7bec36f0d97f2beacb3306d31379e4a79f
+Author: Pranith Kumar K <pkarampu@redhat.com>
+Date:   Mon Aug 27 11:46:33 2018 +0530
+
+    cluster/afr: Delegate metadata heal with pending xattrs to SHD
+    
+    Problem:
+    When metadata-self-heal is triggered on the mount, it blocks
+    lookup until metadata-self-heal completes. But that can lead
+    to hangs when lot of clients are accessing a directory which
+    needs metadata heal and all of them trigger heals waiting
+    for other clients to complete heal.
+    
+    Fix:
+
+More commit messages for this ChangeLog can be found at
+https://forge.gluster.org/glusterfs-core/glusterfs/commits/v3.12.15
