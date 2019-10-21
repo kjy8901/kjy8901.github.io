@@ -5,7 +5,7 @@ date:       2019-10-07 14:01:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
 tags:       filesystem
-cover:      "/assets/whole.png"
+COver:      "/assets/whole.png"
 ---
 
 ## Filesystem
@@ -30,10 +30,16 @@ B+ Tree 구조를 사용
 * 파일시스템이 깨졌을 경우 `xfs_repair`명령을 수행해야 하는데 그러기 위하여 메모리나 swap이 2TB당 1GB이상 필요
 * 시스템이 아닌 별도의 데몬에서 파일시스템을 관리
 
+#### HDFS (Hadoop Distributed File System)
+
+
 #### GlusterFS
 
-gluster사에서 만든 파일시스템으로 확장이 가능한 NAS 파일시스템. 
 gluster사에 의해 개발되었으나 2011년에 레드햇에 인수되었다.
+scale-out방식의 분산파일 시스템으로 확장과 축소가 용이함
+이더넷 or InfiniBand RDMA방식으로 연결가능
+물리서버, 가상황, 클라우드 환경에서 구성 가능
+메타데이터를 사용하지 않는다?? -> SPF문제가 발생하지 않는다
 
 #### FAT
 
@@ -42,7 +48,7 @@ gluster사에 의해 개발되었으나 2011년에 레드햇에 인수되었다.
 
 #### NTFS (New Technology File System)
 
-윈도우NT계열 운영체제의 파일시스.
+윈도우NT계열 운영체제의 파일시스템.
 FAT를 대체, 메타데이터의 지원, 고급 데이터 구조의 사용으로 인한 성능 개선, 신뢰성, 추가 확장기능
 
 #### HPFS (High Performance System)
@@ -56,11 +62,13 @@ FAT 파일시스템의 한계를 개선
 클러스터 파일 시스템으로 불리고 고성능 공유 파일시스템
 인터페이스를 사용하여 공유 파일에 즉시 액세스
 다수의 노드가 동일한 파일에 동시에 액세스할 수 있다
+로깅과 이중화를 통해 뛰어난 가용성을 제공
+디스크 및 서버 장애시 failover 가능
+단일 파일에 동시적 R/W 가능
 
 #### FUSE (Filesystem in Userspace)
 
 파일시스템을 커널 코드를 편집하지 않고 유저 레벨에서 쉽게 제작할 수 있도록 도와주는 Linux 기법.
-
 
 - - -
 참고
