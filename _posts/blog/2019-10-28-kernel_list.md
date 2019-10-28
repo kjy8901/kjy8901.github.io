@@ -19,6 +19,7 @@ cover:      "/assets/kernel_list/basic.png"
 #include <linux/const.h>
 #include <linux/kernel.h>
 ```
+
 SPDX(Software Package Data Exchange)는 소프트웨어 BOM 정보(구성 요소, 라이센스, 저작권 및 보안 참조 포함)을 전달하기 위한 공개 표준입니다.
 
 
@@ -45,19 +46,17 @@ static inline void INIT_LIST_HEAD(struct list_head *list)
 }
 
 ```
+
 1. LIST_HEAD_INIT(name) { &(name), &(name) } //함수형 매크로 ex. PRINT_NUM(x) printf("%d", x)
-2. #define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name) // struct list_head name = {&(name), &(name)} //name 이라는 변수를 만들고 할당
-3. WRITE_ONCE의 정의 : //WRITE_ONCE(x, val)  x=(val) // list->next = (list)
-4. 초기화 함수이기 때문에 list->next == list->prev == list 입니다.
+1. #define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name) // struct list_head name = {&(name), &(name)} //name 이라는 변수를 만들고 할당
+1. WRITE_ONCE의 정의 : //WRITE_ONCE(x, val)  x=(val) // list->next = (list)
+1. 초기화 함수이기 때문에 list->next == list->prev == list 입니다.
+
+INIT_LIST_HEAD는 노드를 초기화하는 함수로써 해당 함수의 그림은 아래와 같습니다.
+
+![Alt text](/assets/kernel_list/INIT_LIST_HEAD.png){: width="350"}
 
 ```C
-/*
- extern 외부 변수
- 함수 밖의 전역 범위에 선언되며, 프로그램 전체에서 유효하고 다른 파일에서도 참조 가능
- 초기화를 생략하면 0으로 자동초기화
- 정적 데이터영역에 할당
- extern 변수는 편리하지만 남용하면 프로그램을 복잡하게 하고 나중에 유지보수가 힘듬
- */
 
 #ifdef CONFIG_DEBUG_LIST
 extern bool __list_add_valid(struct list_head *new,
@@ -99,6 +98,17 @@ bool __list_add_valid(struct list_head *new, struct list_head *prev,
 */
 
 ```
+- extern 외부 변수
+ 함수 밖의 전역 범위에 선언되며, 프로그램 전체에서 유효하고 다른 파일에서도 참조 가능
+ 초기화를 생략하면 0으로 자동초기화
+ 정적 데이터영역에 할당
+ extern 변수는 편리하지만 남용하면 프로그램을 복잡하게 하고 나중에 유지보수가 힘듬
+
+- CONFIG_DEBUG_LIST가 선언 되어있으면 외부의 __list_add_valid 및 __list_del_entry_valid를 호출하고 없을경우
+ true를 반환하는 함수로 생성합니다.
+
+- bool __list_add_valid함수의 주석처리된 부분은 /lib/list_debug.c 에서 복사해온 부분입니다.
+- bool __list_del_entry_valid 도 /lib/list_debug.c에서 확인가능합니다. 
 
 ```C
 /*
@@ -107,7 +117,7 @@ bool __list_add_valid(struct list_head *new, struct list_head *prev,
  * This is only for internal list manipulation where we know
  * the prev/next entries already!
  */
-static inline void __list_add(struct list_head *new,      //list에 추가하는 함수
+static inline void __list_add(struct list_head *new,
 			      struct list_head *prev,
 			      struct list_head *next)
 {
@@ -119,7 +129,23 @@ static inline void __list_add(struct list_head *new,      //list에 추가하는
 	new->prev = prev;
 	WRITE_ONCE(prev->next, new);
 }
+```
+__list_add 함수는 list에 새로운 노드를 추가하는 함수입니다.
 
+![Alt text](/assets/kernel_list/basic.png){: width="700"}
+
+연결리스트는 기본적으로 위와 같이 연결되어 있습니다.
+
+![Alt text](/assets/kernel_list/__list_add.png){: width="700"}
+
+상단의 베이직 그림을 기준으로 entry를 1번 노드 entry->next를 2번 노드라고 할때
+1. next->prev = new : 2번 노드의 prev를 새로운 노드로 연결합니다
+1. new->next = next : 새로운 노드의 next를 2번 노드로 연결합니다. 
+1. new->prev = prev : 새로운 노드의 prev를 1번 노드로 연결합니다. 
+1. WRITE_ONCE(prev->next, new) : WRITE_ONCE가WRITE_ONCE(x, val)  x=(val) // list->next = (list)이기 때문에
+                                 prev->next = (new)가 되어서 1번 노드의 next를 새로운 노드로 연결합니다.
+
+```C
 /**
  * list_add - add a new entry
  * @new: new entry to be added
@@ -132,8 +158,12 @@ static inline void list_add(struct list_head *new, struct list_head *head) //hea
 {
 	__list_add(new, head, head->next);
 }
+```
+list_add는 단순히 __list_add를 호출하는 함수입니다.
 
+![Alt text](/assets/kernel_list/list_add.png){: width="700"}
 
+```C
 /**
  * list_add_tail - add a new entry
  * @new: new entry to be added
