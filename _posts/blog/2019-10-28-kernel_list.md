@@ -5,7 +5,7 @@ date:       2019-10-28 17:18:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
 tags:       kernel, list, 
-cover:      "/assets/whole.png"
+cover:      "/assets/kernel_list/basic.png"
 ---
 
 ```C
@@ -19,6 +19,8 @@ cover:      "/assets/whole.png"
 #include <linux/const.h>
 #include <linux/kernel.h>
 ```
+SPDX(Software Package Data Exchange)는 소프트웨어 BOM 정보(구성 요소, 라이센스, 저작권 및 보안 참조 포함)을 전달하기 위한 공개 표준입니다.
+
 
 ```C
 /*
@@ -31,19 +33,22 @@ cover:      "/assets/whole.png"
  * using the generic single-entry routines.
  */
 
-#define LIST_HEAD_INIT(name) { &(name), &(name) } //함수형 매크로 ex. PRINT_NUM(x) printf("%d", x)
+#define LIST_HEAD_INIT(name) { &(name), &(name) } 
 
 #define LIST_HEAD(name) \
-	struct list_head name = LIST_HEAD_INIT(name) // struct list_head name = {&(name), &(name)} //name 이라는 변수를 만들고 할당
+	struct list_head name = LIST_HEAD_INIT(name) 
 
 static inline void INIT_LIST_HEAD(struct list_head *list)
 {
-	WRITE_ONCE(list->next, list);  //WRITE_ONCE(x, val)  x=(val) // list->next = (list)
+	WRITE_ONCE(list->next, list);  
 	list->prev = list;
-    // init이라 list->next == list->prev
 }
 
 ```
+1. LIST_HEAD_INIT(name) { &(name), &(name) } //함수형 매크로 ex. PRINT_NUM(x) printf("%d", x)
+2. #define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name) // struct list_head name = {&(name), &(name)} //name 이라는 변수를 만들고 할당
+3. WRITE_ONCE의 정의 : //WRITE_ONCE(x, val)  x=(val) // list->next = (list)
+4. 초기화 함수이기 때문에 list->next == list->prev == list 입니다.
 
 ```C
 /*
