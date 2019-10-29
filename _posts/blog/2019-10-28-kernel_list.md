@@ -136,13 +136,13 @@ __list_add 함수는 list에 새로운 노드를 추가하는 함수입니다.
 
 연결리스트는 기본적으로 위와 같이 연결되어 있습니다.
 
-![Alt text](/assets/kernel_list/__list_add.png){: width="700"}
+![Alt text](/assets/kernel_list/list_add2.png){: width="700"}
 
 상단의 베이직 그림을 기준으로 entry를 1번 노드 entry->next를 2번 노드라고 할때
 1. next->prev = new : 2번 노드의 prev를 새로운 노드로 연결합니다
 1. new->next = next : 새로운 노드의 next를 2번 노드로 연결합니다. 
 1. new->prev = prev : 새로운 노드의 prev를 1번 노드로 연결합니다. 
-1. WRITE_ONCE(prev->next, new) : WRITE_ONCE가WRITE_ONCE(x, val)  x=(val) // list->next = (list)이기 때문에
+1. WRITE_ONCE(prev->next, new) : WRITE_ONCE가WRITE_ONCE(x, val)  x=(val) 이기 때문에
                                  prev->next = (new)가 되어서 1번 노드의 next를 새로운 노드로 연결합니다.
 
 ```C
@@ -154,12 +154,13 @@ __list_add 함수는 list에 새로운 노드를 추가하는 함수입니다.
  * Insert a new entry after the specified head.
  * This is good for implementing stacks.
  */
-static inline void list_add(struct list_head *new, struct list_head *head) //head 뒤에 추가
+static inline void list_add(struct list_head *new, struct list_head *head)
 {
 	__list_add(new, head, head->next);
 }
 ```
 list_add는 단순히 __list_add를 호출하는 함수입니다.
+__list_add를 호출하여 head의 뒷부분에 추가하도록 하는 함수입니다.
 
 ![Alt text](/assets/kernel_list/list_add.png){: width="700"}
 
@@ -172,11 +173,17 @@ list_add는 단순히 __list_add를 호출하는 함수입니다.
  * Insert a new entry before the specified head.
  * This is useful for implementing queues.
  */
-static inline void list_add_tail(struct list_head *new, struct list_head *head) //head 앞에  추가
+static inline void list_add_tail(struct list_head *new, struct list_head *head)
 {
 	__list_add(new, head->prev, head);
 }
+```
+list_add_tail은 list_add tail과 거의 유사합니다.
+다만 차이점은 list_add는 head의 뒷부분에 추가한다면 list_add_tail은 head의 앞에 추가하는 함수입니다.
 
+![Alt text](/assets/kernel_list/list_add_tail.png){: width="700"}
+
+```C
 /*
  * Delete a list entry by making the prev/next entries
  * point to each other.
@@ -190,6 +197,14 @@ static inline void __list_del(struct list_head * prev, struct list_head * next) 
 	WRITE_ONCE(prev->next, next);
 }
 ```
+
+__list_del은 노드를 삭제하는 함수입니다.
+
+![Alt text](/assets/kernel_list/__list_del.png){: width="700"}
+
+1. next->prev = prev : 삭제하려는 노드의 다음 노드에서 prev를 삭제하려는 노드의 prev노드로 설정하여 삭제하려는 노드와의 연결을 끊습니다.
+1. WRITE_ONCE(prev->next, next); : 삭제하려는 노드의 이전 노드에서 next를 삭제하려는 노드의 next노드로 설정하여 삭제하려는 노드와의 연결을 끊습니다.
+- 다만 이럴경우 삭제하려는 노드에서 next와 prev는 여전히 연결되어있습니다.
 
 ```C
 /*
