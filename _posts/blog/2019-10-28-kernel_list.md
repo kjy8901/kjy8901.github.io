@@ -24,16 +24,6 @@ SPDX(Software Package Data Exchange)는 소프트웨어 BOM 정보(구성 요소
 
 
 ```C
-/*
- * Simple doubly linked list implementation.
- *
- * Some of the internal functions ("__xxx") are useful when
- * manipulating whole lists rather than single entries, as
- * sometimes we already know the next/prev entries and we can
- * generate better code by using them directly rather than
- * using the generic single-entry routines.
- */
-
 #define LIST_HEAD_INIT(name) { &(name), &(name) } 
 
 #define LIST_HEAD(name) \
@@ -111,12 +101,6 @@ bool __list_add_valid(struct list_head *new, struct list_head *prev,
 - bool __list_del_entry_valid 도 /lib/list_debug.c에서 확인가능합니다. 
 
 ```C
-/*
- * Insert a new entry between two known consecutive entries.
- *
- * This is only for internal list manipulation where we know
- * the prev/next entries already!
- */
 static inline void __list_add(struct list_head *new,
 			      struct list_head *prev,
 			      struct list_head *next)
@@ -146,14 +130,6 @@ __list_add 함수는 list에 새로운 노드를 추가하는 함수입니다.
                                  prev->next = (new)가 되어서 1번 노드의 next를 새로운 노드로 연결합니다.
 
 ```C
-/**
- * list_add - add a new entry
- * @new: new entry to be added
- * @head: list head to add it after
- *
- * Insert a new entry after the specified head.
- * This is good for implementing stacks.
- */
 static inline void list_add(struct list_head *new, struct list_head *head)
 {
 	__list_add(new, head, head->next);
@@ -165,14 +141,6 @@ __list_add를 호출하여 head의 뒷부분에 추가하도록 하는 함수입
 ![Alt text](/assets/kernel_list/list_add.png){: width="700"}
 
 ```C
-/**
- * list_add_tail - add a new entry
- * @new: new entry to be added
- * @head: list head to add it before
- *
- * Insert a new entry before the specified head.
- * This is useful for implementing queues.
- */
 static inline void list_add_tail(struct list_head *new, struct list_head *head)
 {
 	__list_add(new, head->prev, head);
@@ -184,13 +152,6 @@ list_add_tail은 list_add tail과 거의 유사합니다.
 ![Alt text](/assets/kernel_list/list_add_tail.png){: width="700"}
 
 ```C
-/*
- * Delete a list entry by making the prev/next entries
- * point to each other.
- *
- * This is only for internal list manipulation where we know
- * the prev/next entries already!
- */
 static inline void __list_del(struct list_head * prev, struct list_head * next) //제거하는 함수
 {
 	next->prev = prev;
@@ -200,33 +161,26 @@ static inline void __list_del(struct list_head * prev, struct list_head * next) 
 
 __list_del은 노드를 삭제하는 함수입니다.
 
-![Alt text](/assets/kernel_list/__list_del.png){: width="700"}
+![Alt text](/assets/kernel_list/list_del2.png){: width="700"}
 
 1. next->prev = prev : 삭제하려는 노드의 다음 노드에서 prev를 삭제하려는 노드의 prev노드로 설정하여 삭제하려는 노드와의 연결을 끊습니다.
 1. WRITE_ONCE(prev->next, next); : 삭제하려는 노드의 이전 노드에서 next를 삭제하려는 노드의 next노드로 설정하여 삭제하려는 노드와의 연결을 끊습니다.
 - 다만 이럴경우 삭제하려는 노드에서 next와 prev는 여전히 연결되어있습니다.
 
 ```C
-/*
- * Delete a list entry and clear the 'prev' pointer.
- *
- * This is a special-purpose list clearing method used in the networking code
- * for lists allocated as per-cpu, where we don't want to incur the extra
- * WRITE_ONCE() overhead of a regular list_del_init(). The code that uses this
- * needs to check the node 'prev' pointer instead of calling list_empty().
- */
-static inline void __list_del_clearprev(struct list_head *entry) //entry 삭제 및 entry이전 연결은 해제
+static inline void __list_del_clearprev(struct list_head *entry)
 {
 	__list_del(entry->prev, entry->next);
 	entry->prev = NULL;
 }
+```
 
-/**
- * list_del - deletes entry from list.
- * @entry: the element to delete from the list.
- * Note: list_empty() on entry does not return true after this, the entry is
- * in an undefined state.
- */
+__list_del_celarprev 함수는 __list_del함수를 이용하여 삭제하려는 노드의 prev,next 노드를 서로 연결한 이후에 삭제하려는 노드의 prev를 null로 만듭니다.
+
+![Alt text](/assets/kernel_list/list_del_clearprev2.png){: width="700"}
+
+
+```C
 static inline void __list_del_entry(struct list_head *entry) //entry만 삭제
 {
 	if (!__list_del_entry_valid(entry))
@@ -234,12 +188,28 @@ static inline void __list_del_entry(struct list_head *entry) //entry만 삭제
 
 	__list_del(entry->prev, entry->next);
 }
+```
 
+__list_del_entry함수는 단순히 __list_del함수를 이용하여 entry노드를 삭제합니다.
+
+```C
 static inline void list_del(struct list_head *entry)
 {
 	__list_del_entry(entry);
 	entry->next = LIST_POISON1;  
 	entry->prev = LIST_POISON2;
+}
+```
+
+list_del 함수는 __list_del_entry 함수를 이용하여entry노드를 제거합니다.
+이후 entry노드의 prev, next 노드를 LIST_POISON2와1로 설정합니다.
+
+![Alt text](/assets/kernel_list/list_del.png){: width="700"}
+
+LIST_POISON은/include/linux/posion.h에 정의되어있습니다.
+LIST_POISON의 정의는 아래 코드와 같이 되어있습니다.
+
+```C
     /*
      * These are non-NULL pointers that will result in page faults
      * under normal circumstances, used to verify that nobody uses
@@ -257,18 +227,11 @@ static inline void list_del(struct list_head *entry)
         # define POISON_POINTER_DELTA 0
         #endif
      */
-
-}
 ```
+LIST_POISON의 정의를 보면 NULL이 아닌 포인터로 정상적인 상황에서 페이지 오류가 발생하여 초기화되지 않은 목록 항목을 사용하지 않는 사람을 확인하는데 사용한다고 되어있습니다.
+
 
 ```C
-/**
- * list_replace - replace old entry by new one
- * @old : the element to be replaced
- * @new : the new element to insert
- *
- * If @old was empty, it will be overwritten.
- */
 static inline void list_replace(struct list_head *old, //대체
 				struct list_head *new)
 {
@@ -277,14 +240,23 @@ static inline void list_replace(struct list_head *old, //대체
 	new->prev = old->prev;
 	new->prev->next = new;
 }
+```
 
+![Alt text](/assets/kernel_list/list_replace.png){: width="700"}
+
+```C
 static inline void list_replace_init(struct list_head *old,
 					struct list_head *new)
 {
 	list_replace(old, new); //대체 작업
 	INIT_LIST_HEAD(old); //old에서  next prev 해제
 }
+```
 
+![Alt text](/assets/kernel_list/list_replace_init.png){: width="700"}
+
+
+```C
 /**
  * list_swap - replace entry1 with entry2 and re-add entry1 at entry2's position
  * @entry1: the location to place entry2
