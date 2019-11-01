@@ -917,12 +917,37 @@ static inline int hlist_unhashed(const struct hlist_node *h)
 {
 	return !h->pprev;
 }
-
+```
+```C
 static inline int hlist_empty(const struct hlist_head *h)
 {
 	return !READ_ONCE(h->first);
 }
+```
+hlist_empty는 READ_ONCE(h->first) 를 수행합니다.
+READ_ONCE(h->first)는__READ_ONCE(h->first, 1)을 수햅합니다.
+__READ_ONCE(h->first, 1)은 아래와 같이 변경될 수 있습니다.
+```C
+({
+   union { 
+         typeof(h->first) __val; 
+         char __c[1]; 
+         } __u; 
+   *(__u64 *)__u.__c= *(volatile __u64 *)&(h->first);
+   smp_read_barrier_depends(); /* Enforce dependency ordering from x */   \
+   __u.__val;
+ })
+```
+위 코드는 READ_ONCE를 __READ_ONCE와 __READ_ONE_SIZE를 사용하여 보기 쉽게 변환한 것입니다.
+공용체로 h->first 와 같은 자료형의 __val을 선언하고
+__c[1]을 선언합니다.
+__READ_ONCE_SIZE에서 __u.__c는 h=>first의 주소가 타입캐스팅되어 저장됩니다.
+__u.__c와 __u.__val은 같은 메모리 공간을 사용하기 때문에 결과적으로
+READ_ONCE(h->first)는 메모리 공간에서 volatile을 사용하게 타입캐스팅한 후 반납하는 함수입니다.
+결과적으로 !READ_ONCE(h->first)를 사용하여 h->first가 존재하면 거짓을 반환합니다.
+존재하지않으면 참을 반환합니다.
 
+```C
 static inline void __hlist_del(struct hlist_node *n)
 {
 	struct hlist_node *next = n->next;
@@ -932,14 +957,22 @@ static inline void __hlist_del(struct hlist_node *n)
 	if (next)
 		next->pprev = pprev;
 }
+```
+삭제하려는 노드 n의 next와 pprev를 각각 *next와 **pprev에 대입한다
+WRITE_ONCE(*pprev, next) 는 pprev의 포인터에 next(주소값)을 대입한다.
+*pprev는????????????????????????
+next가 존재하면 next의 prev로 pprev를 가르킨다.
 
+```C
 static inline void hlist_del(struct hlist_node *n)
 {
 	__hlist_del(n);
 	n->next = LIST_POISON1;
 	n->pprev = LIST_POISON2;
 }
-
+```
+__hlist_del을 이용하여 n 노드를 삭제 후 n 노드의 next와 pprev를 LIST_POISON으로 연결한다
+```C
 static inline void hlist_del_init(struct hlist_node *n)
 {
 	if (!hlist_unhashed(n)) {
@@ -947,7 +980,10 @@ static inline void hlist_del_init(struct hlist_node *n)
 		INIT_HLIST_NODE(n);
 	}
 }
+```
+__helist_del을 이용하여 n 노드를 삭제 후 n노드를 초기화 한다.
 
+```C
 static inline void hlist_add_head(struct hlist_node *n, struct hlist_head *h)
 {
 	struct hlist_node *first = h->first;
@@ -957,7 +993,15 @@ static inline void hlist_add_head(struct hlist_node *n, struct hlist_head *h)
 	WRITE_ONCE(h->first, n);
 	n->pprev = &h->first;
 }
+```
+간단하게는 first위치에 n 노드를 추가하는 함수입니다.
+현재의 head를 받아와서 first를 대입합니다.
+n노드의 next를 first로 연결하고
+first->pprev를 n의next노드로 연결 
+WRITE_ONCE(h->first, n) : h->first=n
+n->pprev = &h->first                          
 
+```C
 /* next must be != NULL */
 static inline void hlist_add_before(struct hlist_node *n,
 					struct hlist_node *next)
@@ -967,7 +1011,14 @@ static inline void hlist_add_before(struct hlist_node *n,
 	next->pprev = &n->next;
 	WRITE_ONCE(*(n->pprev), n);
 }
+```
+n노드를 next노드의 앞에 추가하는 함수입니다.
+n->pprev 를 next=>pprev로 연결합니다.
+n->next 를 next노드로 연결합니다.
+next->pprev = &n->next : next->pprev = &(n->next)으로 생각하면 좀더 이해하기 쉬울것 같습니다.
+next->pprev 에 n->next의 주소값을 전달합니다.
 
+```C
 static inline void hlist_add_behind(struct hlist_node *n,
 				    struct hlist_node *prev)
 {
