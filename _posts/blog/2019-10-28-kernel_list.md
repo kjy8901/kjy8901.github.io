@@ -960,8 +960,11 @@ static inline void __hlist_del(struct hlist_node *n)
 ```
 삭제하려는 노드 n의 next와 pprev를 각각 *next와 **pprev에 대입한다
 WRITE_ONCE(*pprev, next) 는 pprev의 포인터에 next(주소값)을 대입한다.
-*pprev는????????????????????????
 next가 존재하면 next의 prev로 pprev를 가르킨다.
+
+hlist구조상 pprev는 prev노드의 next포인터의 주소값을 가리킨다.
+그러므로 WRITE_ONCE(*pprev, next)는 pprev->next = next 로 생각할 수 있다.
+
 
 ```C
 static inline void hlist_del(struct hlist_node *n)
@@ -999,7 +1002,7 @@ static inline void hlist_add_head(struct hlist_node *n, struct hlist_head *h)
 n노드의 next를 first로 연결하고
 first->pprev를 n의next노드로 연결 
 WRITE_ONCE(h->first, n) : h->first=n
-n->pprev = &h->first                          
+n->pprev = &h->first 
 
 ```C
 /* next must be != NULL */
@@ -1018,6 +1021,10 @@ n->next 를 next노드로 연결합니다.
 next->pprev = &n->next : next->pprev = &(n->next)으로 생각하면 좀더 이해하기 쉬울것 같습니다.
 next->pprev 에 n->next의 주소값을 전달합니다.
 
+요거만 잘이해안되넹
+n->pprev = next->pprev;   : &next->pprev->next 가 되야는거 아닌가?
+WRITE_ONCE(*(n->pprev), n); : n->pprev 가 이전노드인데 이전노드에 포인트라 그게 next를 뜻하는거고 next가 n을 가리키는거면 ok
+
 ```C
 static inline void hlist_add_behind(struct hlist_node *n,
 				    struct hlist_node *prev)
@@ -1029,18 +1036,23 @@ static inline void hlist_add_behind(struct hlist_node *n,
 	if (n->next)
 		n->next->pprev  = &n->next;
 }
-
+```
+```C
 /* after that we'll appear to be on some hlist and hlist_del will work */
 static inline void hlist_add_fake(struct hlist_node *n)
 {
 	n->pprev = &n->next;
 }
+```
+hlist에 n이 있는것 처럼 보이게 합니다. 보통 hlist_del을 작동하게 할때 사용합니다.
 
+```C
 static inline bool hlist_fake(struct hlist_node *h)
 {
 	return h->pprev == &h->next;
 }
-
+```
+```C
 /*
  * Check whether the node is the only node of the head without
  * accessing head:
@@ -1050,7 +1062,10 @@ hlist_is_singular_node(struct hlist_node *n, struct hlist_head *h)
 {
 	return !n->next && n->pprev == &h->first;
 }
-
+```
+head에 접근하지 않고 노드가 헤드의 유일한 노드인지 확인
+n의 next가 없고 n의 pprev가 head->first의 주소값을 가리키면 유일한 노드임을 알 수 있습니다.
+```C
 /*
  * Move a list from one list head to another. Fixup the pprev
  * reference of the first entry if it exists.
@@ -1063,7 +1078,12 @@ static inline void hlist_move_list(struct hlist_head *old,
 		new->first->pprev = &new->first;
 	old->first = NULL;
 }
+```
+1. 새로운 head new의 first를 기존의 head의 first가 가리키던 노드로 연결한다.
+2. new->first가 있으면 new->first가 가리키는 노드의 pprev를 new->first 포인터 주소값으로 연결한다.
+3. 기존 head의 first를 NULL로 변경한다.
 
+```C
 #define hlist_entry(ptr, type, member) container_of(ptr,type,member)
 
 #define hlist_for_each(pos, head) \
