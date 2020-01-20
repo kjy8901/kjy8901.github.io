@@ -5,7 +5,7 @@ date:       2020-01-16 14:01:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
 tags:       subnetmask
-cover:      "/assets/whole.png"
+cover:      "/assets/subnetmask_cover.png"
 ---
 
 ## Subnetmask
