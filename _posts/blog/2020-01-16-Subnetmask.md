@@ -184,25 +184,25 @@ default         gateway         0.0.0.0         UG    100    0        0 eth0
 
 ### IP route 명령어
 
-라우팅 테이블 확인
+###### 라우팅 테이블 확인
 ``` bash
 ip r
 ip route
 ip route show
 ip route list
 ``` 
-라우팅 추가
+###### 라우팅 추가
 ``` bash
 ip route add 192.168.0.0/24 via 192.168.0.201 dev eth0 # 정적 라우팅 정보 설정
 ip route add default via 192.168.0.1 # 디폴트 게이트웨이 설정
 ```
-라우팅 삭제
+###### 라우팅 삭제
 ``` bash
 ip route del 192.168.0.0/24 # 정적 라우팅 정보 삭제
 ip route del default via 192.168.0.1 # 디폴트 게이트웨이 삭제
 ```
 
-#### 관련 IP 명령어
+###### 관련 IP 명령어
 
 ``` bash
 ip link set eth0 up # eth0 인터페이스 활성
@@ -210,7 +210,27 @@ ip link set eth0 down # eth0 인터페이스 비활성
 ip addr add dev eth0 192.168.0.201/24 # eth0 ip 설정
 ip addr add dev eth0 192.168.0.201/24 broadcast 192.168.0.255 # eth0 ip & broadcast 설정
 ip addr del dev eth0 192.168.0.201/24 # eth0 ip 삭제
+ip route change deafult via 192.168.0.201 dev etho # IP경로 변경
+ip route replace
+ip -s route get 127.0.0.1/32
+ip route flush table main # ip main route table 삭제
+ip route flush 192.168.0.0/24 # 해당 route 삭제
 ```
+
+###### ip route option
+
+metric `NUMBER` # 라우터가 목적지로 가는 여러 가능한 경로 중에서 가장 좋은 경로를 선택하도록 도와줌. 메트릭이 가장 낮은 게이트웨이 방향으로 진행
+preference `NUMBER` # 선호하는 라우트, 32비트 숫자  
+table `TABLEID` # 라우트를 추가할 테이블을 결정  
+dev `INTERFACE` # device name  
+via # nexthop router  
+nexthop `NEXTHOP` # 목적지까지 가기 위한 바로 다음의 라우터 또는 경로   
+src `ADDRESS` # 목적지로 보낼때 선호하는 주소   
+realm `REALMID` #  
+mtu # 패킷 또는 프레임의 최대 크기    
+kernel # 커널 자동구성동안에 라우트가 설치된다  
+boot # 부팅중에 라우트가 설치된다.  
+static # 정적라우팅. 관리자가 직접설정한 라우트 
 
 - - -
 참고
