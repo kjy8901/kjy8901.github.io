@@ -1,0 +1,14 @@
+[global]
+name=PM883SeqW_raw
+bs=128k
+
+[Test]
+#runtime=600
+#size=6T
+rw=write
+filename=/dev/sdn
+write_bw_log=SeqW
+write_lat_log=SeqW
+write_iops_log=SeqW
+log_avg_msec=1000
+

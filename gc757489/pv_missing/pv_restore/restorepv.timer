@@ -1,0 +1,12 @@
+[Unit]
+Description=restore pv timer
+Requires=restorepv.service
+
+[Timer]
+OnCalendar=*:0/15
+OnBootSec=30
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target
+

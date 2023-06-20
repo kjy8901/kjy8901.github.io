@@ -1,0 +1,15 @@
+[global]
+name=PM883_raw
+bs=128k
+
+[Test]
+#runtime=600
+#size=6T
+rw=rw
+rwmixread=90
+filename=/dev/sdn
+write_bw_log=Seq91
+write_lat_log=Seq91
+write_iops_log=Seq91
+log_avg_msec=1000
+
