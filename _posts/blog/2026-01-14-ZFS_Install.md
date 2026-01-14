@@ -5,7 +5,7 @@ date:       2026-01-14 18:14:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
 tags:       filesystem, ZFS
-COver:      "/assets/tmp.png"
+COver:      "/assets/757489_logo.png"
 ---
 
 ## ZFS
