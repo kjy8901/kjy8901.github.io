@@ -1,11 +1,12 @@
 ---
 layout:     post
-title:      "ZFS Install & Build"
-date:       2026-01-14 18:14:00
-author:     권 진영 (gc757489@gmail.com)
+title:      "ZFS make"
+date:       2026-01-14
 categories: blog
-tags:       filesystem, ZFS
-COver:      "/assets/757489_logo.png"
+author:     권 진영 (gc757489@gmail.com)
+tags:       MOP 
+cover:      "/assets/757489_logo.png"
+main:      "/assets/757489_logo.png"
 ---
 
 ## ZFS
@@ -40,7 +41,9 @@ Rocky 8.7 기준 설치
 modprobe 안될 경우 참고 1번 확인
 
 - - -
-참고
 
-https://openzfs.github.io/openzfs-docs/Developer%20Resources/Custom%20Packages.html#
-https://openzfs.github.io/openzfs-docs/Developer%20Resources/Building%20ZFS.html#github-repositories
+## 참고
+
+ * https://openzfs.github.io/openzfs-docs/Developer%20Resources/Custom%20Packages.html#
+  * https://openzfs.github.io/openzfs-docs/Developer%20Resources/Building%20ZFS.html#github-repositories
+
