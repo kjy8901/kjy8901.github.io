@@ -1,0 +1,47 @@
+---
+layout:     post
+title:      "k8s tuner"
+date:       2026-01-15
+categories: blog
+author:     권 진영 (gc757489@gmail.com)
+tags:       k8s, kubernetes, tuner
+cover:      "/assets/757489_logo.png"
+main:      "/assets/757489_logo.png"
+---
+
+## k8s tuner 조사
+
+https://kubernetes.io/docs/reference/scheduling/config/
+- k8s 스케줄링
+https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/
+- 스케줄링 플러그인
+https://github.com/totemcaf/k8autotune
+
+https://github.com/jmccarty3/awsScaler
+- aws 리소스 확장하는 오픈소스
+
+**https://github.com/4b415941/Kubernetes-Scheduler**
+- 펜딩 관련 부분 코드 있는 것으로 보임
+- 코드 분석 (실제 테스트 필요)
+  - pods 수집
+  - $SCHEDULER(예약어인듯) 와 비교해서 펜딩 파드 찾음
+  - 사용 가능한 노드 중 랜덤으로 선택
+  - kube API를 통해 노드에 바인딩
+  - 대기 후 반복
+https://github.com/kelseyhightower/scheduler
+- 노드별 점수를 매겨서 스케줄링
+- 데모용
+**https://github.com/kubernetes-sigs/kube-scheduler-simulator**
+- 스케줄링 시뮬레이터 k8s 자체 스케줄링의 시뮬레이터
+- 위의 여러 스케줄러의 스케줄링 결과를 로그를 읽지 않고 파악이 어렵기 때문에 시뮬레이터를 개발하여 동작을 테스트 해보거나 UI를 통해 파악
+https://github.com/kubernetes-retired/kube-batch
+- openBCe,Kubeflow,Volcano,Baidu Inc, TuSimple,MOGU Inc,Vivo에서 사용 중
+- 자원 인식 스케줄링,
+**https://github.com/AliyunContainerService/gpushare-scheduler-extender**
+- GPU 자원을 공유하여 활용도를 높이기 위한 스케줄러
+- GPU 메모리 단위 자원 요청. x GiB
+- 테스트 필요
+
+- - -
+
+## 참고

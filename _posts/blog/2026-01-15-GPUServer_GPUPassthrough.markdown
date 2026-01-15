@@ -1,0 +1,86 @@
+---
+layout:     post
+title:      "GPU 서버구성 및 패스스루"
+date:       2026-01-15
+categories: blog
+author:     권 진영 (gc757489@gmail.com)
+tags:       GPU, GPU Passthrough
+cover:      "/assets/757489_logo.png"
+main:      "/assets/757489_logo.png"
+---
+
+## GPU 서버 구성
+
+![Alt text](/assets/gpu_server/KakaoTalk_20250403_210628091.jpg){: width="700"}
+사진1. 아래에서 부터 PCIe 0 -> 7번
+0:A4000, 1:NVMe x4, 2:A4000, 3: empty, 4:A4000, 5:NVMe x4, 6:A4000
+
+![Alt text](/assets/gpu_server/KakaoTalk_20250403_210628091_02.jpg){: width="700"}
+사진2. IIO Configuration내에서 Socket0 및 Socket1 Configuration 수정 필요
+
+![Alt text](/assets/gpu_server/KakaoTalk_20250403_210628091_01.jpg){: width="700"}
+사진3. Socket0 Configuration 안에서 IOU 0,1 은 x16, IOU 2는 4x4x4x4
+       Socket1 Configuration 안에서 IOU 0,2 은 x16, IOU 1는 4x4x4x4
+
+![Alt text](/assets/gpu_server/Pasted image 20250403211009.png){: width="700"}
+사진4. lspci 통해 GPU의 PCIe 레인 확인
+
+![Alt text](/assets/gpu_server/Pasted image 20250403211052.png){: width="700"}
+사진5. lspci 통해 NVMe의 PCIe 레인 확인
+
+## GPU 패스 스루
+
+1. `lspci -nn |grep -i nvidia` 확인
+```
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA104GL [RTX A4000] [10de:24b0] (rev a1)
+01:00.1 Audio device [0403]: NVIDIA Corporation GA104 High Definition Audio Controller [10de:228b] (rev a1)
+
+```
+  - 10de:24b0, 10de:228b 같이 PCI ID, Device ID 확보
+2. `vim /etc/modprobe.d/vfio.conf`
+```
+softdep nouveau pre: vfio-pci
+options vfio-pci ids=10de:24b0,10de:228b disable_vga=1
+```
+3. `echo 'vfio-pci' >> /etc/modules-load.d/vfio-pci.conf`
+4. `echo "options kvm ignore_msrs=1" >> /etc/modprobe.d/kvm.conf`
+5. `vim /etc/default/grub` 에 추가(amd의 경우 intel_iommu=on 대신 amd_iommu=on)
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on iommu=pt video=vesafb:off,efifb:off vfio_iommu_type1.allow_unsafe_interrupts=1"
+```
+5. `grub2-editenv create`
+6. `grub2-mkconfig -o /etc/grub2.cfg`
+7. `dracut -f`
+8. `reboot`
+9. `dmesg | grep -i vfio` 아래와 유사한 메시지 확인
+```
+[root@localhost ~]# dmesg |grep -i vfio
+[    0.000000] Command line: BOOT_IMAGE=(hd1,gpt2)/vmlinuz-4.18.0-553.el8_10.x86_64 root=/dev/mapper/rl-root ro crashkernel=auto resume=/dev/mapper/rl-swap rd.lvm.lv=rl/root rd.lvm.lv=rl/swap quiet splash intel_iommu=on vfio_iommu_type1.allow_unsafe_interrupts=1
+[    0.000000] Kernel command line: BOOT_IMAGE=(hd1,gpt2)/vmlinuz-4.18.0-553.el8_10.x86_64 root=/dev/mapper/rl-root ro crashkernel=auto resume=/dev/mapper/rl-swap rd.lvm.lv=rl/root rd.lvm.lv=rl/swap quiet splash intel_iommu=on vfio_iommu_type1.allow_unsafe_interrupts=1
+[    1.045631] VFIO - User Level meta-driver version: 0.3
+[    1.050832] vfio-pci 0000:01:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=io+mem
+[    1.062046] vfio_pci: add [10de:24b0[ffffffff:ffffffff]] class 0x000000/00000000
+[    1.075033] vfio_pci: add [10de:228b[ffffffff:ffffffff]] class 0x000000/00000000
+
+```
+
+
+각 VM에서 작업 사항
+![Alt text](/assets/gpu_server/스크린샷 2025-12-17 191514.png){: width="700"}
+1. Add Hardware
+![Alt text](/assets/gpu_server/스크린샷 2025-12-17 191551.png){: width="700"}
+2. PCI Host Device
+3. 0000:XX:XX:X NVIDIA Corporation GA104GL [RTX A4000]
+4. Finish
+5. Add Hardware
+6. PCI Host Device
+7. 0000:XX:XX:X NVIDIA Corporation GA104 High Definition Audio Controller
+8.  Finish
+![Alt text](/assets/gpu_server/스크린샷 2025-12-17 191622.png){: width="700"}
+![Alt text](/assets/gpu_server/스크린샷 2025-12-17 192146.png){: width="700"}
+
+- - -
+
+## 참고
+
+ * https://blog.naver.com/PostView.nhn?blogId=makdan&logNo=221398788627
