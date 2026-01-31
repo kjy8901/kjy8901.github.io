@@ -4,7 +4,7 @@ title:      "k8s tuner"
 date:       2026-01-15
 categories: blog
 author:     권 진영 (gc757489@gmail.com)
-tags:       k8s, kubernetes, tuner
+tags:       k8s kubernetes tuner
 cover:      "/assets/757489_logo.png"
 main:      "/assets/757489_logo.png"
 ---

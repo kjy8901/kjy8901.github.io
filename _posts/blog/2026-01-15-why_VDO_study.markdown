@@ -4,7 +4,7 @@ title:      "왜 VDO를 연구하게 되었는가"
 date:       2026-01-15
 categories: blog
 author:     권 진영 (gc757489@gmail.com)
-tags:       tmux
+tags:       VDO Deduplication
 cover:      "/assets/757489_logo.png"
 main:      "/assets/757489_logo.png"
 ---

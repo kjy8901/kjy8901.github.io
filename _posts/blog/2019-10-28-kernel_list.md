@@ -4,7 +4,7 @@ title:      "Kernel list"
 date:       2019-10-28 17:18:00
 author:     권 진영 (gc757489@gmail.com)
 categories: blog
-tags:       kernel, list
+tags:       kernel&nbsp;list
 cover:      "/assets/kernel_list/basic.png"
 ---
 

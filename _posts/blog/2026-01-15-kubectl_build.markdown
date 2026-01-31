@@ -4,7 +4,7 @@ title:      "kubectl build"
 date:       2026-01-15
 categories: blog
 author:     권 진영 (gc757489@gmail.com)
-tags:       k8s, kubernetes, kubectl
+tags:       k8s kubernetes kubectl
 cover:      "/assets/757489_logo.png"
 main:      "/assets/757489_logo.png"
 ---

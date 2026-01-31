@@ -4,7 +4,7 @@ title:      "학위논문 요약"
 date:       2026-01-31
 categories: blog
 author:     권 진영 (gc757489@gmail.com)
-tags:       deduplication, VDO, k8s, scheduling
+tags:       deduplication VDO k8s scheduling
 cover:      "/assets/757489_logo.png"
 main:      "/assets/757489_logo.png"
 ---
